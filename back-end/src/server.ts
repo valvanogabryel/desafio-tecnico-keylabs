@@ -5,14 +5,20 @@ import routes from './routes';
 
 const app = express();
 const port = process.env.PORT ?? 8000;
+const allowedOrigins = [process.env.ORIGIN_URL];
 
-// config
 app.use(cookieParser());
 app.use(
   cors({
-    origin: '*',
-    // credentials: true,
-    methods: 'GET,PUT,POST,OPTIONS,DELETE',
+    origin: function (origin, callback) {
+      // verifica se a origem da solicitação está na lista de origens permitidas
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+    credentials: true,
   })
 );
 app.use(express.json());

@@ -1,6 +1,8 @@
 import { useFormik } from 'formik';
 import { z } from 'zod';
 import { toFormikValidationSchema } from 'zod-formik-adapter';
+import registerUser from '../api/registerUser';
+import login from '../api/login';
 
 let formik;
 let userSchema;
@@ -21,20 +23,18 @@ export function useCustomFormik(type: 'signup' | 'login') {
 
   formik = useFormik({
     initialValues: { email: '', password: '' },
-    onSubmit: async (values, actions) => {
+    onSubmit: async (values) => {
       if (type === 'login') {
-        alert(
-          'Requisição sendo feita para http://localhost:4003/login passando os valores' +
-            JSON.stringify(values, null, 2)
-        );
-      } else {
-        alert(
-          'Requisição sendo feita para http://localhost:4003/signup passando os valores' +
-            JSON.stringify(values, null, 2)
-        );
-      }
+        const data = await login(values);
 
-      actions.resetForm();
+        if (data?.auth) {
+          localStorage.setItem('auth', data.auth);
+          window.location.href = '/';
+        }
+      } else {
+        await registerUser(values);
+        window.location.href = '/login';
+      }
     },
     validationSchema: toFormikValidationSchema(userSchema),
     validateOnChange: false,

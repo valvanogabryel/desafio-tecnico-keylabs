@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { prisma } from '../db/prismaClient';
 import bcrypt from 'bcryptjs';
+import { userSchema } from '../schemas/userSchema';
 
 export class UsersController {
   // GET
@@ -24,6 +25,8 @@ export class UsersController {
     const { email, password } = req.body;
 
     try {
+      userSchema.parse({ email, password });
+
       const existingUser = await prisma.user.findFirst({
         where: { email },
       });
