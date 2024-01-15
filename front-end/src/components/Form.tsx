@@ -44,7 +44,7 @@ export function Form({ type }: Readonly<{ type: 'signup' | 'login' }>) {
       {type === 'login' && (
         <div className="self-end -mt-4">
           <Link
-            to="/reset-password"
+            to="/login"
             className="text-sm text-keyslab-light-gray underline transition-all hover:text-light-gray"
           >
             Esqueci minha senha
