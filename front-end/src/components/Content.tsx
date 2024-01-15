@@ -9,7 +9,7 @@ interface ContentProps {
 
 export function Content({ heading, formType }: Readonly<ContentProps>) {
   return (
-    <section className="flex flex-col items-center gap-8 w-full animate-fade-up">
+    <section className="flex flex-col items-center gap-8 w-full animate-fade-up select-none">
       <Logo className="md:hidden" />
 
       <h1 className="text-light-gray text-2.5xl font-semibold">{heading}</h1>

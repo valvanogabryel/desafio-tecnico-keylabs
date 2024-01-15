@@ -1,26 +1,46 @@
 import { Link } from 'react-router-dom';
 import { EmailIcon } from './Icons/EmailIcon';
 import { PasswordIcon } from './Icons/PasswordIcon';
-import { EyeIcon } from './Icons/EyeIcon';
 import { Button } from './Button';
 import { Input } from './Input';
+import { useCustomFormik } from '../hook/useCustomFormik';
+import { ErrorMessage } from './ErrorMessage';
 
 export function Form({ type }: Readonly<{ type: 'signup' | 'login' }>) {
+  const formik = useCustomFormik(type);
+
   return (
-    <form className="flex flex-col gap-5 w-11/12 xl:w-6/12 2xl:w-4/12">
-      <div className="flex items-center relative text-light-gray">
-        <EmailIcon className="absolute p-4 left-0 pointer-events-none" />
-        <Input type="email" placeholder="nome@exemplo.com" />
-      </div>
+    <form
+      className="flex flex-col gap-5 w-11/12 xl:w-6/12 2xl:w-4/12"
+      onSubmit={formik.handleSubmit}
+    >
+      {formik.errors['email'] && formik.touched['email'] && (
+        <ErrorMessage message={formik.errors['email']} />
+      )}
 
-      <div className="flex items-center rounded-xl relative group text-light-gray">
-        <PasswordIcon className="absolute p-4 pointer-events-none" />
-        <Input type="password" placeholder="********" />
+      <Input
+        type="email"
+        placeholder="nome@exemplo.com"
+        Icon={EmailIcon}
+        onChange={formik.handleChange}
+        value={formik.values.email}
+        id="email"
+      />
 
-        <button type="button" className="absolute right-0 pr-4">
-          <EyeIcon className="transition-all hover:scale-105" />
-        </button>
-      </div>
+      {formik.errors['password'] && formik.touched['password'] && (
+        <ErrorMessage message={formik.errors['password']} />
+      )}
+
+      <Input
+        type="password"
+        placeholder="********"
+        Icon={PasswordIcon}
+        hasTogglePassword
+        onChange={formik.handleChange}
+        value={formik.values.password}
+        id="password"
+      />
+
       {type === 'login' && (
         <div className="self-end -mt-4">
           <Link
