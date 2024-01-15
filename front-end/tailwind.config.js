@@ -11,6 +11,8 @@ export default {
         'keyslab-blue': '#009EFF',
         'keyslab-blue-hover': '#005CBF',
         'light-gray': '#FAFAFA',
+        'gradient-dark-blue': '#051F40',
+        'gradient-blue': '#06425C',
       },
       fontFamily: {
         inter: ['Inter', 'sans-serif'],
@@ -20,7 +22,22 @@ export default {
       },
       padding: {
         15: '3.75rem',
-      }
+      },
+      keyframes: {
+        'fade-up-kf': {
+          from: {
+            transform: 'translateY(20px)',
+            opacity: 0,
+          },
+          to: {
+            transform: 'translateY(0)',
+            opacity: 1,
+          },
+        },
+      },
+      animation: {
+        'fade-up': 'fade-up-kf .3s cubic-bezier(.51,.92,.24,1.15)',
+      },
     },
   },
   plugins: [],
