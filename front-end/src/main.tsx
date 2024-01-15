@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './routes/Home';
 import Login from './routes/Login';
 import SignUp from './routes/SignUp';
 import { SnackbarProvider } from 'notistack';
+import './index.css';
 
 const router = createBrowserRouter([
   {

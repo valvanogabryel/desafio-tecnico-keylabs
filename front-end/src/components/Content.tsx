@@ -1,9 +1,6 @@
-import { Button } from './Button';
 import { Form } from './Form';
-import { EmailIcon } from './Icons/EmailIcon';
 import { Logo } from './Icons/Logo';
 import { WolfBadge } from './Icons/WolfBadge';
-import { Input } from './Input';
 
 interface ContentProps {
   heading: string;

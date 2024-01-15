@@ -10,7 +10,7 @@ export function Input({
   Icon,
   hasTogglePassword = false,
   ...props
-}: InputProps) {
+}: Readonly<InputProps>) {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
