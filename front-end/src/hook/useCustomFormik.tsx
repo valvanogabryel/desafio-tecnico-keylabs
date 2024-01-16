@@ -29,7 +29,7 @@ export function useCustomFormik(type: 'signup' | 'login') {
       if (type === 'login') {
         enqueueSnackbar(
           <div className="flex items-center gap-4">
-            <MoonLoader size={16} />
+            <MoonLoader size={16} className="text-white" />
             <span>Carregando</span>
           </div>
         );
