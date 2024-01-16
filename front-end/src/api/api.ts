@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://localhost:4003',
+  baseURL: 'https://keyslab-backend-5b175a71bd82.herokuapp.com',
   withCredentials: true,
 });
 
