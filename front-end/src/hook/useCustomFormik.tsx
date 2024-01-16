@@ -4,6 +4,7 @@ import { toFormikValidationSchema } from 'zod-formik-adapter';
 import registerUser from '../api/registerUser';
 import login from '../api/login';
 import { enqueueSnackbar } from 'notistack';
+import { MoonLoader } from 'react-spinners';
 
 let formik;
 let userSchema;
@@ -26,7 +27,7 @@ export function useCustomFormik(type: 'signup' | 'login') {
     initialValues: { email: '', password: '' },
     onSubmit: async (values) => {
       if (type === 'login') {
-        enqueueSnackbar('Carregando', {});
+        enqueueSnackbar(<MoonLoader /> + 'Carregando');
         const data = await login(values);
 
         if (data?.auth) {
