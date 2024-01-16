@@ -43,6 +43,7 @@ export class AuthController {
           httpOnly: true,
           secure: true,
           maxAge: ONE_WEEK,
+          sameSite: 'none',
         })
         .json({
           auth: true,
