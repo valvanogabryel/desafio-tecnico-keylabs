@@ -27,7 +27,12 @@ export function useCustomFormik(type: 'signup' | 'login') {
     initialValues: { email: '', password: '' },
     onSubmit: async (values) => {
       if (type === 'login') {
-        enqueueSnackbar(<MoonLoader /> + 'Carregando');
+        enqueueSnackbar(
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <MoonLoader />
+            <span style={{ marginLeft: '8px' }}>Carregando</span>
+          </div>
+        );
         const data = await login(values);
 
         if (data?.auth) {
