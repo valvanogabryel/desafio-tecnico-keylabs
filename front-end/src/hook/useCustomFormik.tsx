@@ -28,9 +28,9 @@ export function useCustomFormik(type: 'signup' | 'login') {
     onSubmit: async (values) => {
       if (type === 'login') {
         enqueueSnackbar(
-          <div style={{ display: 'flex', alignItems: 'center' }}>
-            <MoonLoader />
-            <span style={{ marginLeft: '8px' }}>Carregando</span>
+          <div className="flex items-center gap-4">
+            <MoonLoader size={16} />
+            <span>Carregando</span>
           </div>
         );
         const data = await login(values);
