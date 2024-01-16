@@ -24,6 +24,7 @@ Este repositório contém o resultado do meu teste técnico referente à vaga pa
 - **Banco de Dados:** PostgreSQL
 - **Framework:** ExpressJS
 - **ORM:** Prisma
+- **Validação:** Zod
 
 ### Frontend
 - **Framework:** ReactJS + Typescript
