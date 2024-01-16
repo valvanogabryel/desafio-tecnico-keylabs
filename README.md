@@ -1,7 +1,5 @@
 ## Teste Técnico Keylabs
 
-Olá [Nome do Recrutador ou Equipe de Recrutamento],
-
 Este repositório contém o resultado do meu teste técnico referente à vaga para KeyLabs. Agradeço a oportunidade de participar deste processo seletivo.
 
 ### Deploy
