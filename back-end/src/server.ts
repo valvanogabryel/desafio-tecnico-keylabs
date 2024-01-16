@@ -10,14 +10,7 @@ const allowedOrigins = [process.env.ORIGIN_URL];
 app.use(cookieParser());
 app.use(
   cors({
-    origin: function (origin, callback) {
-      // verifica se a origem da solicitação está na lista de origens permitidas
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error('Not allowed by CORS'));
-      }
-    },
+    origin: 'https://desafio-tecnico-keylabs.vercel.app',
     credentials: true,
   })
 );
