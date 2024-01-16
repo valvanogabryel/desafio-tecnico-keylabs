@@ -6,7 +6,7 @@ Este repositório contém o resultado do meu teste técnico referente à vaga pa
 
 ### Deploy
 - **Vercel** (Front-end) e **Heroku** (Back-end)
-- **Deploy 🚀** [Abra em uma nova guia]: https://desafio-tecnico-keylabs.vercel.app/login
+- **Deploy 🚀** [Abra em uma nova guia]:
 
 
   ## Autor
