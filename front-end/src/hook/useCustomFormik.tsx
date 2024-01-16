@@ -3,6 +3,8 @@ import { z } from 'zod';
 import { toFormikValidationSchema } from 'zod-formik-adapter';
 import registerUser from '../api/registerUser';
 import login from '../api/login';
+import { useState } from 'react';
+import { enqueueSnackbar } from 'notistack';
 
 let formik;
 let userSchema;
@@ -25,6 +27,7 @@ export function useCustomFormik(type: 'signup' | 'login') {
     initialValues: { email: '', password: '' },
     onSubmit: async (values) => {
       if (type === 'login') {
+        enqueueSnackbar('Carregando', {});
         const data = await login(values);
 
         if (data?.auth) {
